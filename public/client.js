@@ -12,7 +12,7 @@ do {
     name = prompt('Please enter your name: ')
 } while(!name)
 let onjoin = {
-    user: '',
+    user: `${name}`,
     message: `${name} joined the gapshap.`,
     time: time
     

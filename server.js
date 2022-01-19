@@ -17,10 +17,15 @@ app.get('/', (req, res) => {
 // Socket 
 const io = require('socket.io')(http)
 
+
+const users={};
+
+
 io.on('connection', (socket) => {
     console.log('Connected...')
     socket.on('joined',(onjoin)=>
     {
+        users[socket.id]=onjoin.name;
         socket.broadcast.emit('message',onjoin)
     })
 
@@ -28,5 +33,18 @@ io.on('connection', (socket) => {
     socket.on('message', (msg) => {
         socket.broadcast.emit('message', msg)
     })
+
+    socket.on('disconnect',()=>{
+        console.log("inside dissconnect");
+        
+        let msg = {
+            user: '',
+            message: `${users[socket.id]} left the chat`,
+            time: ''
+            
+        }
+        socket.broadcast.emit('message',msg)
+    })
+
 
 })

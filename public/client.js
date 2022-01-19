@@ -18,6 +18,8 @@ let onjoin = {
     
 }
 socket.emit('joined',onjoin)
+
+
 textarea.addEventListener('keyup', (e) => {
     if(e.key === 'Enter') {
         sendMessage(e.target.value)
@@ -72,3 +74,13 @@ function scrollToBottom() {
 
 
 
+socket.on('left',(socket)=>{
+    let msg = {
+        user: name,
+        message: "left the chat",
+        time: time
+        
+    }
+    socket.emit('message',msg)
+    console.log('left inside client')
+})

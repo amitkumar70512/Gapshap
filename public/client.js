@@ -11,7 +11,13 @@ let time=h+":"+m;
 do {
     name = prompt('Please enter your name: ')
 } while(!name)
-socket.emit('joined',name)
+let onjoin = {
+    user: '',
+    message: `${name} joined the gapshap.`,
+    time: time
+    
+}
+socket.emit('joined',onjoin)
 textarea.addEventListener('keyup', (e) => {
     if(e.key === 'Enter') {
         sendMessage(e.target.value)

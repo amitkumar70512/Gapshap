@@ -11,7 +11,7 @@ let time=h+":"+m;
 do {
     name = prompt('Please enter your name: ')
 } while(!name)
-
+socket.emit('joined',name)
 textarea.addEventListener('keyup', (e) => {
     if(e.key === 'Enter') {
         sendMessage(e.target.value)
@@ -56,7 +56,7 @@ socket.on('message', (msg) => {
 
     appendMessage(msg, 'incoming')
     audio.play();
-    console.log('audio will b played')
+    
     scrollToBottom()
 })
 

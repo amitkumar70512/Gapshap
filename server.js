@@ -19,6 +19,12 @@ const io = require('socket.io')(http)
 
 io.on('connection', (socket) => {
     console.log('Connected...')
+    socket.on('joined',(name)=>
+    {
+        socket.broadcast.emit(`${name} joined the gapshap.`)
+    })
+
+
     socket.on('message', (msg) => {
         socket.broadcast.emit('message', msg)
     })

@@ -21,7 +21,7 @@ io.on('connection', (socket) => {
     console.log('Connected...')
     socket.on('joined',(name)=>
     {
-        socket.broadcast.emit(`${name} joined the gapshap.`)
+        socket.broadcast.emit('message',`${name} joined the gapshap.`)
     })
 
 

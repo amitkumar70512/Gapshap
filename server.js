@@ -25,7 +25,7 @@ io.on('connection', (socket) => {
     console.log('Connected...')
     socket.on('joined',(onjoin)=>
     {
-        users[socket.id]=onjoin.name;
+        users[socket.id]=onjoin.user;
         socket.broadcast.emit('message',onjoin)
     })
 

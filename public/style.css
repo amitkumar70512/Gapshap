@@ -33,7 +33,7 @@ section.chat__section {
 }
 .message__area{
     height: 500px;
-    padding: 16px;
+    padding:  16px;
     display: flex;
     flex-direction: column;
     overflow-y: auto;
@@ -41,15 +41,16 @@ section.chat__section {
 }
 textarea {
     width: 100%;
-    border: none;
+    border-left-color: #8F8BE8;
+    border-top: none;
     padding: 20px;
     font-size: 16px;
     outline: none;
-    background: #FBFBFB;
+    background: #bfb7d4;
 }
 
 .message {
-    padding: 20px; 
+    padding: 8px 20px; 
     border-radius: 4px; 
     margin-bottom: 40px;
     max-width: 300px;
@@ -61,13 +62,19 @@ textarea {
 }
 .outgoing {
     background: #e9eafd;
-    color: #787986;
+    color: #3c3c43;
     margin-left: auto;
 }
 .message h4 {
     position: absolute;
     top: -20px;
     left: 0;
-    color: #333;
+    color: #3414cb94;
     font-size: 14px;
+}
+.message h6{
+    position: relative;
+    
+    color:#3333336b;
+    
 }

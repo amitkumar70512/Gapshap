@@ -4,7 +4,10 @@ let textarea = document.querySelector('#textarea')
 let messageArea = document.querySelector('.message__area')
 var audio = new Audio('tone.mp3')
 
-
+const d = new Date();
+let h = (d.getUTCHours()+5)%12;
+let m = d.getUTCMinutes()+30;
+let time=h+":"+m;
 do {
     name = prompt('Please enter your name: ')
 } while(!name)
@@ -18,7 +21,9 @@ textarea.addEventListener('keyup', (e) => {
 function sendMessage(message) {
     let msg = {
         user: name,
-        message: message.trim()
+        message: message.trim(),
+        time: time
+        
     }
     // Append 
     appendMessage(msg, 'outgoing')
@@ -38,6 +43,7 @@ function appendMessage(msg, type) {
     let markup = `
         <h4>${msg.user}</h4>
         <p>${msg.message}</p>
+        <h6>${msg.time}</h6>
     `
     mainDiv.innerHTML = markup
     messageArea.appendChild(mainDiv)

@@ -5,9 +5,13 @@ let messageArea = document.querySelector('.message__area')
 var audio = new Audio('tone.mp3')
 
 const d = new Date();
-let h = (d.getUTCHours()+5)%12;
-let m=d.getUTCMinutes();
+let h,m;
+function get_time()
+{
+ h = (d.getUTCHours()+5)%12;
+ m=d.getUTCMinutes();
 if(m>29)h++;
+}
 
  m = d.getUTCMinutes()+30%60;
 
@@ -31,6 +35,7 @@ textarea.addEventListener('keyup', (e) => {
 })
 
 function sendMessage(message) {
+    get_time();
     let msg = {
         user: name,
         message: message.trim(),
@@ -65,7 +70,7 @@ function appendMessage(msg, type) {
 
 // Recieve messages 
 socket.on('message', (msg) => {
-
+    get_time();
     appendMessage(msg, 'incoming')
     audio.play();
     

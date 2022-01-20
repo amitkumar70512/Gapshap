@@ -5,25 +5,26 @@ let messageArea = document.querySelector('.message__area')
 var audio = new Audio('tone.mp3')
 
 const d = new Date();
-var h=0,m=0;
+var h=0,m=0,t=0;
 function get_time()
 {
  h = (d.getUTCHours()+5)%12;
  m=d.getUTCMinutes();
 if(m>29)h++;
 m = d.getUTCMinutes()+30%60;
+t=h+":"+m;
 }
 
  
 get_time()
-let time=h+":"+m;
+
 do {
     name = prompt('Please enter your name: ')
 } while(!name)
 let onjoin = {
     user: `${name}`,
     message: `${name} joined the gapshap.`,
-    time: time
+    time: t
     
 }
 socket.emit('joined',onjoin)
@@ -40,7 +41,7 @@ function sendMessage(message) {
     let msg = {
         user: name,
         message: message.trim(),
-        time: time
+        time: t
         
     }
     // Append 
@@ -71,7 +72,7 @@ function appendMessage(msg, type) {
 
 // Recieve messages 
 socket.on('message', (msg) => {
-    get_time();
+  
     appendMessage(msg, 'incoming')
     audio.play();
     

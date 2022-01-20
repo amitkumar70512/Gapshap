@@ -42,7 +42,9 @@ section.chat__section {
 textarea {
     width: 100%;
     border-left-color: #8F8BE8 ;
-    border-width: 3px;
+    border-bottom: none;
+    border-right: none;
+    border-width: 4x;
     border-top: none;
     padding: 20px;
     font-size: 16px;

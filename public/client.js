@@ -5,16 +5,17 @@ let messageArea = document.querySelector('.message__area')
 var audio = new Audio('tone.mp3')
 
 const d = new Date();
-let h,m;
+var h=0,m=0;
 function get_time()
 {
  h = (d.getUTCHours()+5)%12;
  m=d.getUTCMinutes();
 if(m>29)h++;
+m = d.getUTCMinutes()+30%60;
 }
 
- m = d.getUTCMinutes()+30%60;
-
+ 
+get_time()
 let time=h+":"+m;
 do {
     name = prompt('Please enter your name: ')

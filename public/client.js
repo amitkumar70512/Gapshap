@@ -9,7 +9,7 @@ let h = (d.getUTCHours()+5)%12;
 let m=d.getUTCMinutes();
 if(m>29)h++;
 
-let m = d.getUTCMinutes()+30%60;
+ m = d.getUTCMinutes()+30%60;
 
 let time=h+":"+m;
 do {

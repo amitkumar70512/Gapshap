@@ -6,8 +6,9 @@ var audio = new Audio('tone.mp3')
 
 const d = new Date();
 let h = (d.getUTCHours()+5)%12;
-let m = d.getUTCMinutes()+30%60;
 if(m>29)h++;
+let m = d.getUTCMinutes()+30%60;
+
 let time=h+":"+m;
 do {
     name = prompt('Please enter your name: ')

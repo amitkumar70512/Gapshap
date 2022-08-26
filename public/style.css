@@ -72,10 +72,18 @@ textarea {
     color: #fff;
 }
 
+.incoming:hover {
+    background: #9d99f7;
+}
+
 .outgoing {
     background: #e9eafd;
     color: #3c3c43;
     margin-left: auto;
+}
+
+.outgoing:hover {
+    background: #d4d6fa;
 }
 
 .message h4 {
@@ -88,7 +96,6 @@ textarea {
 
 .message h6 {
     position: relative;
-
     color: #3333336b;
 
 }

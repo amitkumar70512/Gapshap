@@ -204,12 +204,13 @@ textarea:hover {
 
     textarea {
         width: 100%;
+        position: fixed;
         border-left-color: #8F8BE8;
         border-bottom: none;
         border-right: none;
         border-width: 4px;
         border-top: none;
-        padding: 20px;
+        bottom: 0px;
         font-size: 16px;
         outline: none;
         background: none;

@@ -121,11 +121,11 @@ textarea:hover {
 
 #notify button {
     position: relative;
-    top: 40px;
+    top: 60px;
     left: 85%;
     font-size: 16px;
     width: max-content;
-    padding: 3px 3px;
+    padding: 3px 4px;
     background-color: #9d99f7;
     color: white;
     border: none;
@@ -163,16 +163,38 @@ textarea:hover {
     * {
         padding: 0;
         margin: 0;
-        box-sizing: border-box;
     }
 
     body {
+        width: 100%;
+        height: 100vh;
         display: flex;
         align-items: center;
-        justify-content: space-evenly;
-        background: #cb8cff;
+        justify-content: center;
         font-family: 'Roboto', sans-serif;
+        background-size: 300% 300%;
+        background-image: linear-gradient(-45deg,
+                rgba(59, 173, 227, 1) 0%,
+                rgba(87, 111, 230, 1) 25%,
+                rgba(152, 68, 183, 1) 51%,
+                rgba(255, 53, 127, 1) 100%);
+        animation: AnimateBG 20s ease infinite;
     }
+
+    @keyframes AnimateBG {
+        0% {
+            background-position: 0% 50%
+        }
+
+        50% {
+            background-position: 100% 50%
+        }
+
+        100% {
+            background-position: 0% 50%
+        }
+    }
+
 
     section.chat__section {
         position: fixed;
@@ -236,15 +258,5 @@ textarea:hover {
         position: relative;
     }
 
-    #notify button {
-        position: relative;
-        left: 90%;
-        top: 40px;
-        font-size: 16px;
-        width: max-content;
-        padding: 3px 3px;
-        background-color: #9d99f7;
-        color: white;
-        border: none;
-    }
+
 }

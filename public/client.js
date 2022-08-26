@@ -30,7 +30,11 @@ let onjoin = {
 }
 socket.emit('joined',onjoin)
 
-
+function send(){
+    document.getElementById("typingText").style.visibility="hidden";
+    sendMessage(document.getElementById("textarea").value);
+    document.getElementById("textarea").value="";
+}
 textarea.addEventListener('keyup', (e) => {
     if(e.key === 'Shift') {
         sendMessage(e.target.value)

@@ -51,7 +51,7 @@ io.on('connection', (socket) => {
         get_time()
         let text = {
             user: msg.user,
-            message: user.message,
+            message: msg.message,
             time: t
             
         }

@@ -60,7 +60,7 @@ function sendMessage(message) {
     appendMessage(msg, 'outgoing')
     textarea.value = ''
     scrollToBottom()
-    document.getElementById("typingText").style.display='none';
+    document.getElementById("typingText").style.visibility="hidden";
     // Send to server 
     socket.emit('message', msg)
 
@@ -101,5 +101,5 @@ function scrollToBottom() {
 socket.on('typing',()=>{
     console.log(" i have to display typing animation");
 
-    document.getElementById("typingText").style.display='block';
+    document.getElementById("typingText").style.visibility="visible";
 })

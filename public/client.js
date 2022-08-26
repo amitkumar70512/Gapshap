@@ -35,11 +35,11 @@ function send(){
     sendMessage(document.getElementById("textarea").value);
     document.getElementById("textarea").value="";
 }
-textarea.addEventListener('keyup', (e) => {
-    if(e.key === 'Shift') {
-        sendMessage(e.target.value)
-    }
-})
+// textarea.addEventListener('keyup', (e) => {
+//     if(e.key === 'Shift') {
+//         sendMessage(e.target.value)
+//     }
+// })
 
 function sendMessage(message) {
     get_time();

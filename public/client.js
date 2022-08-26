@@ -8,6 +8,7 @@ const d = new Date();
 var h=0,m=0,t=0;
 function get_time()
 {
+    console.log(d.getTime());
  h = (d.getUTCHours()+5)%12;
  m=d.getUTCMinutes();
 if(m>29)h++;
@@ -31,7 +32,7 @@ socket.emit('joined',onjoin)
 
 
 textarea.addEventListener('keyup', (e) => {
-    if(e.key === 'Enter') {
+    if(e.key === 'Shift') {
         sendMessage(e.target.value)
     }
 })

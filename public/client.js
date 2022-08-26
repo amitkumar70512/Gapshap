@@ -44,7 +44,7 @@ function send(){
 
 function typing(){
     // Send to server 
-    socket.emit('typing', msg);
+    socket.emit('typing');
     // document.getElementById("typingText").style.visibility="visible";
 }
 
@@ -101,5 +101,6 @@ function scrollToBottom() {
 // typing
 socket.on('typing',()=>{
     console.log(" i have to display typing animation");
+
     document.getElementById("typingText").style.visibility="visible";
 })

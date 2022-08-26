@@ -121,7 +121,7 @@ textarea:hover {
 
 #notify button {
     position: relative;
-    left: 90%;
+    left: 85%;
     top: 40px;
     font-size: 16px;
     width: max-content;
@@ -138,7 +138,7 @@ textarea:hover {
 #notify #typingText {
     visibility: hidden;
     padding: 3px;
-    animation: flick 1.5s 5;
+
 }
 
 @keyframes flick {
@@ -233,4 +233,15 @@ textarea:hover {
         position: relative;
     }
 
+    #notify button {
+        position: relative;
+        left: 90%;
+        top: 40px;
+        font-size: 16px;
+        width: max-content;
+        padding: 3px 3px;
+        background-color: #9d99f7;
+        color: white;
+        border: none;
+    }
 }

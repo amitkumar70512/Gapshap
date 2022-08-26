@@ -61,6 +61,9 @@ io.on('connection', (socket) => {
     socket.on('typing',()=>{
         socket.broadcast.emit('typing')
     })
+    socket.on('stoptyping',()=>{
+        socket.broadcast.emit('stoptyping')
+    })
 
     socket.on('disconnect',()=>{
         

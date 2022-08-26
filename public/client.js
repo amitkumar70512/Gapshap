@@ -12,7 +12,7 @@ function get_time()
  h = (d.getUTCHours()+5)%12;
  m=d.getUTCMinutes();
 if(m>29)h++;
-m = d.getUTCMinutes()+30%60;
+m = (d.getUTCMinutes()+30)%60;
 t=h+":"+m;
 }
 

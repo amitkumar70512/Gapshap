@@ -1,5 +1,5 @@
 const socket = io()
-let name;
+var name;
 let textarea = document.querySelector('#textarea')
 let messageArea = document.querySelector('.message__area')
 var audio = new Audio('tone.mp3')

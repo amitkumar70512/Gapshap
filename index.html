@@ -5,7 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gapshap chat app</title>
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function typing(){
+        document.getElementById("typingText").style.visibility="visible";
+    }
+        function send(){
+            document.getElementById("typingText").style.visibility="hidden";
+            document.getElementById("textarea").value="";
+        }
+    
+    </script>
 </head>
 
 <body>
@@ -15,8 +25,14 @@
             <h1>Gapshap</h1>
         </div>
         <div class="message__area"></div>
+
+        <section id="notify">
+            <div id="typingText">Typing..</div>
+            <button type="button" onclick="send()">Send</button>
+        </section>
+        
         <div>
-            <textarea id="textarea" cols="30" onkeypress="typing()" rows="1" placeholder="Write a message..."></textarea>
+            <textarea id="textarea" cols="30" onkeypress="typing()" onclick="" rows="1" placeholder="Write a message..."></textarea>
         </div>
     </section>
     <script src="/socket.io/socket.io.js"></script>

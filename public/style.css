@@ -265,6 +265,7 @@ textarea:hover {
         right: 0px;
         font-size: 16px;
         width: max-content;
+        max-height: max-content;
         padding: 20px 6px;
         background-color: #9d99f7;
         color: white;

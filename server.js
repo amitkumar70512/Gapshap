@@ -34,7 +34,11 @@ io.on('connection', (socket) => {
     socket.on('message', (msg) => {
         socket.broadcast.emit('message', msg)
     })
-
+    
+    socket.on('typing',()=>{
+        socket.broadcast.emit('typing')
+    })
+    
     socket.on('disconnect',()=>{
         console.log("inside dissconnect");
         

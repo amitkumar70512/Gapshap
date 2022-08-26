@@ -41,6 +41,13 @@ function send(){
 //     }
 // })
 
+
+function typing(){
+    // Send to server 
+    socket.emit('typing', msg);
+    // document.getElementById("typingText").style.visibility="visible";
+}
+
 function sendMessage(message) {
     get_time();
     let msg = {
@@ -84,8 +91,13 @@ socket.on('message', (msg) => {
     scrollToBottom()
 })
 
+
 function scrollToBottom() {
     messageArea.scrollTop = messageArea.scrollHeight
 }
 
 
+// typing
+socket.on('typing',()=>{
+    document.getElementById("typingText").style.visibility="visible";
+})

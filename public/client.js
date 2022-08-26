@@ -43,9 +43,8 @@ function send(){
 
 
 function typing(){
-    // Send to server 
+    // Send to server  i am typing
     socket.emit('typing');
-    // document.getElementById("typingText").style.visibility="visible";
 }
 
 function sendMessage(message) {
@@ -61,7 +60,7 @@ function sendMessage(message) {
     appendMessage(msg, 'outgoing')
     textarea.value = ''
     scrollToBottom()
-
+    document.getElementById("typingText").style.visibility="hidden";
     // Send to server 
     socket.emit('message', msg)
 

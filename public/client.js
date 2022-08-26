@@ -99,5 +99,6 @@ function scrollToBottom() {
 
 // typing
 socket.on('typing',()=>{
+    console.log(" i have to display typing animation");
     document.getElementById("typingText").style.visibility="visible";
 })

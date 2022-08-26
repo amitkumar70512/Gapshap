@@ -50,6 +50,7 @@ function typing(){
 
 function sendMessage(message) {
     get_time();
+    console.log(t);
     let msg = {
         user: name,
         message: message.trim(),

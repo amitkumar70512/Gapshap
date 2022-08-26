@@ -21,6 +21,22 @@ const io = require('socket.io')(http)
 const users={};
 
 
+const d = new Date();
+var h=0,m=0,t=0;
+function get_time()
+{
+ 
+ h = (d.getUTCHours()+5)%12;
+ m=d.getUTCMinutes();
+if(m>29)h++;
+m = (d.getUTCMinutes()+30)%60;
+t=h+":"+m;
+}
+
+ 
+get_time()
+
+
 io.on('connection', (socket) => {
     
     socket.on('joined',(onjoin)=>
@@ -32,15 +48,21 @@ io.on('connection', (socket) => {
 
 
     socket.on('message', (msg) => {
+        get_time()
+        let text = {
+            user: msg.user,
+            message: user.message,
+            time: t
+            
+        }
         socket.broadcast.emit('message', msg)
     })
     
     socket.on('typing',()=>{
         socket.broadcast.emit('typing')
     })
-    
+
     socket.on('disconnect',()=>{
-        console.log("inside dissconnect");
         
         let msg = {
             user: '',

@@ -21,18 +21,24 @@ const io = require('socket.io')(http)
 const users={};
 
 
-const d = new Date();
-var h=0,m=0,t=0;
-function get_time()
-{
+// const d = new Date();
+// var h=0,m=0,t=0;
+// function get_time()
+// {
  
- h = (d.getUTCHours()+5)%12;
- m=d.getUTCMinutes();
-if(m>29)h++;
-m = (d.getUTCMinutes()+30)%60;
-t=h+":"+m;
-}
+//  h = (d.getUTCHours()+5)%12;
+//  m=d.getUTCMinutes();
+// if(m>29)h++;
+// m = (d.getUTCMinutes()+30)%60;
+// t=h+":"+m;
+// }
 
+var t=0;
+
+function get_time() {
+    var date = new Date();
+    t = date.getHours()+':'+date.getMinutes();
+}
  
 get_time()
 

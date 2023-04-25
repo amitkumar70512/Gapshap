@@ -4,43 +4,37 @@ let textarea = document.querySelector('#textarea')
 let messageArea = document.querySelector('.message__area')
 var audio = new Audio('tone.mp3')
 
-// const d = new Date();
-// var h=0,m=0,t=0;
-// function get_time()
-// {
-//     console.log(d.getTime());
-//  h = (d.getUTCHours()+5)%12;
-//  m=d.getUTCMinutes();
-// if(m>29)h++;
-// m = (d.getUTCMinutes()+30)%60;
-// t=h+":"+m;
-// }
-
-var t=0;
+var h = 0,
+    m = 0,
+    t = 0;
 
 function get_time() {
-    var date = new Date();
-    t = date.getHours()+':'+date.getMinutes();
+    var d = new Date();
+    console.log(d.getTime());
+    h = (d.getUTCHours() + 5) % 12;
+    m = d.getUTCMinutes();
+    if (m > 29) h++;
+    m = (d.getUTCMinutes() + 30) % 60;
+    t = h + ":" + m;
 }
 
- 
 get_time()
 
 do {
     name = prompt('Please enter your name: ')
-} while(!name)
+} while (!name)
 let onjoin = {
     user: `${name}`,
     message: `${name} joined the gapshap.`,
     time: t
-    
-}
-socket.emit('joined',onjoin)
 
-function send(){
-    document.getElementById("typingText").style.visibility="hidden";
+}
+socket.emit('joined', onjoin)
+
+function send() {
+    document.getElementById("typingText").style.visibility = "hidden";
     sendMessage(document.getElementById("textarea").value);
-    document.getElementById("textarea").value="";
+    document.getElementById("textarea").value = "";
 }
 // textarea.addEventListener('keyup', (e) => {
 //     if(e.key === 'Shift') {
@@ -49,7 +43,7 @@ function send(){
 // })
 
 
-function typing(){
+function typing() {
     // Send to server  i am typing
     socket.emit('typing');
 }
@@ -61,7 +55,7 @@ function sendMessage(message) {
         user: name,
         message: message.trim(),
         time: t
-        
+
     }
     // Append 
     appendMessage(msg, 'outgoing')
@@ -85,16 +79,16 @@ function appendMessage(msg, type) {
     `
     mainDiv.innerHTML = markup
     messageArea.appendChild(mainDiv)
-    
-    
+
+
 }
 
 // Recieve messages 
 socket.on('message', (msg) => {
-  
+
     appendMessage(msg, 'incoming')
     audio.play();
-    
+
     scrollToBottom()
 })
 
@@ -105,10 +99,10 @@ function scrollToBottom() {
 
 
 // typing
-socket.on('typing',()=>{
-    document.getElementById("typingText").style.visibility="visible";
+socket.on('typing', () => {
+    document.getElementById("typingText").style.visibility = "visible";
 })
 
-socket.on('stoptyping',()=>{
-    document.getElementById("typingText").style.visibility="hidden";
+socket.on('stoptyping', () => {
+    document.getElementById("typingText").style.visibility = "hidden";
 })

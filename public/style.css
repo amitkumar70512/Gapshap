@@ -205,7 +205,7 @@ body {
     
     .message__area {
         height: 90%;
-        padding: 10px;
+        padding: 40px 20px;
         display: flex;
         flex-direction: column;
         overflow-y: auto;

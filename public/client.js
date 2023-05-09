@@ -15,17 +15,19 @@ function get_time() {
     m = d.getUTCMinutes();
     if (m > 29) h++;
     m = (d.getUTCMinutes() + 30) % 60;
+    if(m<10) m = "0"+m;
     t = h + ":" + m;
 }
 
 get_time()
 
 do {
-    name = prompt('Please enter your name: ')
-} while (!name)
+    uname = prompt('Please enter your name: ')
+} while (!uname)
+
 let onjoin = {
-    user: `${name}`,
-    message: `${name} joined the gapshap.`,
+    user: `${uname}`,
+    message: `${uname} joined the gapshap.`,
     time: t
 
 }
@@ -36,11 +38,12 @@ function send() {
     sendMessage(document.getElementById("textarea").value);
     document.getElementById("textarea").value = "";
 }
-// textarea.addEventListener('keyup', (e) => {
-//     if(e.key === 'Shift') {
-//         sendMessage(e.target.value)
-//     }
-// })
+
+textarea.addEventListener("keypress", (e) => {
+    if(e.key === "Enter") {
+        send();
+    }
+})
 
 
 function typing() {
@@ -52,7 +55,7 @@ function sendMessage(message) {
     get_time();
     console.log(t);
     let msg = {
-        user: name,
+        user: uname,
         message: message.trim(),
         time: t
 

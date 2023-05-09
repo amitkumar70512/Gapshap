@@ -27,7 +27,7 @@ do {
 
 let onjoin = {
     user: `${uname}`,
-    message: `${uname} joined the gapshap.`,
+    message: `${uname} joined the chat.`,
     time: t
 
 }

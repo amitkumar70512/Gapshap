@@ -69,9 +69,9 @@ io.on('connection', (socket) => {
     socket.on('disconnect',()=>{
         
         let msg = {
-            user: '',
+            user: `${users[socket.id]}`,
             message: `${users[socket.id]} left the chat`,
-            time: ''
+            time: t
             
         }
         socket.broadcast.emit('message',msg)

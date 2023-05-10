@@ -20,19 +20,20 @@ const io = require('socket.io')(http)
 
 const users={};
 
+var h = 0,
+    m = 0,
+    t = 0;
 
-const d = new Date();
-var h=0,m=0,t=0;
-function get_time()
-{
- 
- h = (d.getUTCHours()+5)%12;
- m=d.getUTCMinutes();
-if(m>29)h++;
-m = (d.getUTCMinutes()+30)%60;
-t=h+":"+m;
+function get_time() {
+    var d = new Date();
+    console.log(d.getTime());
+    h = (d.getUTCHours() + 5) % 12;
+    m = d.getUTCMinutes();
+    if (m > 29) h++;
+    m = (d.getUTCMinutes() + 30) % 60;
+    if(m<10) m = "0"+m;
+    t = h + ":" + m;
 }
-
  
 get_time()
 
@@ -68,9 +69,9 @@ io.on('connection', (socket) => {
     socket.on('disconnect',()=>{
         
         let msg = {
-            user: '',
+            user: `${users[socket.id]}`,
             message: `${users[socket.id]} left the chat`,
-            time: ''
+            time: t
             
         }
         socket.broadcast.emit('message',msg)
